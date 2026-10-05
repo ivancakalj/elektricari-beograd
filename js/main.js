@@ -34,26 +34,43 @@
   var progress = document.getElementById('servicesProgress');
   var current = 0;
 
-  // konačna pozicija kartice: sve kartice pre nje su skupljene
-  function targetLeft(i) {
-    var other = cards[i === 0 ? 1 : 0];
-    var collapsed = parseFloat(getComputedStyle(other).flexBasis) || other.offsetWidth;
+  // konačna pozicija kartice: sve kartice pre nje su skupljene.
+  // Širinu skupljene kartice merimo na kartici koja se ne animira
+  // (ni trenutna ni prethodna), inače dobijemo međuvrednost tranzicije.
+  function collapsedWidth(skipA, skipB) {
+    for (var k = 0; k < cards.length; k++) {
+      if (k !== skipA && k !== skipB) return cards[k].getBoundingClientRect().width;
+    }
+    return 230;
+  }
+  function targetLeft(i, prev) {
     var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
-    return i * (collapsed + gap);
+    return i * (collapsedWidth(i, prev) + gap);
+  }
+
+  // dok traje programsko pomeranje, isključi „snap“ da ga pregledač ne vraća nazad
+  var snapTimer;
+  function scrollTrackTo(left) {
+    track.style.scrollSnapType = 'none';
+    track.scrollTo({ left: left, behavior: 'smooth' });
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(function () { track.style.scrollSnapType = ''; }, 900);
   }
 
   function activate(i) {
+    var prev = current;
     current = (i + cards.length) % cards.length;
+    if (current === prev) return;
     cards.forEach(function (c, idx) { c.classList.toggle('is-active', idx === current); });
     progress.style.width = ((current + 1) / cards.length * 100) + '%';
-    track.scrollTo({ left: targetLeft(current), behavior: 'smooth' });
+    scrollTrackTo(targetLeft(current, prev));
   }
 
-  // kad se kartica do kraja proširi, poravnaj ako je skrol završio pre vremena
+  // kad se kartica do kraja proširi, poravnaj ako je potrebno
   track.addEventListener('transitionend', function (e) {
     if (e.propertyName !== 'flex-basis' || e.target !== cards[current]) return;
-    var left = targetLeft(current);
-    if (Math.abs(track.scrollLeft - left) > 2) track.scrollTo({ left: left, behavior: 'smooth' });
+    var left = Math.min(targetLeft(current, -1), track.scrollWidth - track.clientWidth);
+    if (Math.abs(track.scrollLeft - left) > 2) scrollTrackTo(left);
   });
 
   cards.forEach(function (card, idx) {
