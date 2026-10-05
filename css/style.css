@@ -386,6 +386,93 @@ button { font: inherit; cursor: pointer; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* =========================================================
+   Animacije
+   ========================================================= */
+/* Hero: ulazna sekvenca + spori zum pozadine */
+.hero__bg { animation: heroZoom 18s ease-out both; }
+@keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+.hero__content > *, .hero__badge, .nav { animation: heroIn .9s cubic-bezier(.2,.8,.2,1) both; }
+.nav { animation-name: navIn; animation-delay: .1s; }
+.hero__content > :nth-child(1) { animation-delay: .25s; }
+.hero__content > :nth-child(2) { animation-delay: .4s; }
+.hero__content > :nth-child(3) { animation-delay: .6s; }
+.hero__content > :nth-child(4) { animation-delay: .75s; }
+.hero__badge { animation-delay: 1s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes navIn { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+
+/* Munja u logou „treperi“ kao varnica */
+.logo__mark svg { animation: spark 4.5s infinite; }
+@keyframes spark {
+  0%, 86%, 100% { opacity: 1; transform: none; }
+  88% { opacity: .3; transform: scale(.9); }
+  90% { opacity: 1; transform: scale(1.12); }
+  92% { opacity: .5; }
+  94% { opacity: 1; transform: none; }
+}
+.logo:hover .logo__mark { animation: wiggle .5s; }
+@keyframes wiggle { 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+
+/* Odsjaj preko narandžastih dugmadi */
+.btn--accent { position: relative; overflow: hidden; isolation: isolate; }
+.btn--accent::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform .7s ease;
+}
+.btn--accent:hover::after { transform: translateX(120%); }
+
+/* Telefon u pilulama „zvoni“ */
+.pill-phone__icon svg { animation: ring 3.2s infinite; transform-origin: 50% 50%; }
+@keyframes ring {
+  0%, 80%, 100% { transform: rotate(0); }
+  83% { transform: rotate(-16deg); } 86% { transform: rotate(14deg); }
+  89% { transform: rotate(-12deg); } 92% { transform: rotate(10deg); } 95% { transform: rotate(0); }
+}
+.fab-call { animation: fabPulse 2.4s infinite; }
+@keyframes fabPulse {
+  0% { box-shadow: 0 0 0 0 rgba(242,107,29,.55), 0 12px 30px -8px rgba(242,107,29,.8); }
+  70% { box-shadow: 0 0 0 16px rgba(242,107,29,0), 0 12px 30px -8px rgba(242,107,29,.8); }
+  100% { box-shadow: 0 0 0 0 rgba(242,107,29,0), 0 12px 30px -8px rgba(242,107,29,.8); }
+}
+
+/* Okrugle slike u baneru lagano lebde */
+.banner__circles .c { animation: float 6s ease-in-out infinite; }
+.banner__circles .c2 { animation-delay: -2s; animation-duration: 7s; }
+.banner__circles .c3 { animation-delay: -4s; animation-duration: 8s; }
+.ring { animation: spin 40s linear infinite; border-style: dashed; }
+.r2 { animation-direction: reverse; }
+@keyframes float { 50% { transform: translateY(-12px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Kartice: podizanje na hover */
+.review, .loc, .ccard { transition: transform .3s ease, box-shadow .3s ease, background .2s; }
+.reviews__track .review:hover { transform: translateY(-6px); box-shadow: 0 22px 40px -20px rgba(15,26,46,.55); }
+.split__media img, .feature__media img { transition: transform .8s ease; }
+.split__media:hover img { transform: scale(1.02); }
+.feature__media { overflow: hidden; }
+.feature:hover .feature__media img { transform: scale(1.04); }
+
+/* Postepeno pojavljivanje elemenata u grupi */
+.stagger > * { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i, 0) * 90ms); }
+.stagger.is-visible > * { opacity: 1; transform: none; }
+.stagger.stagger-done > * { transition-delay: 0s; }
+.loc-grid .loc:hover { transform: translateY(-3px); }
+.services__track.stagger.is-visible > .svc { transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1), flex-basis .55s cubic-bezier(.2,.8,.2,1); }
+.reveal--left { transform: translateX(-36px); }
+.reveal--right { transform: translateX(36px); }
+.reveal--zoom { transform: scale(.94); }
+.reveal--left.is-visible, .reveal--right.is-visible, .reveal--zoom.is-visible { transform: none; }
+
+/* Traka napretka čitanja */
+.read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 100; background: linear-gradient(90deg, var(--amber), var(--accent)); transform-origin: 0 50%; transform: scaleX(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger > * { opacity: 1; transform: none; }
+  .reveal--left, .reveal--right, .reveal--zoom { transform: none; }
+}
+
+/* =========================================================
    Responsive
    ========================================================= */
 @media (max-width: 1100px) {

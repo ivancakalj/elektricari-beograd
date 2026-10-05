@@ -117,13 +117,85 @@
     sections.forEach(function (s) { if (s) spy.observe(s); });
 
     /* ---------- Animacija pri skrolu ---------- */
-    var revealEls = document.querySelectorAll('.section-title, .split__media, .feature, .banner, .loc-grid, .reviews__track, .faq, .contact-cta, .checks');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-visible');
+        if (en.target.classList.contains('stagger')) {
+          var t = en.target;
+          setTimeout(function () { t.classList.add('stagger-done'); }, 600 + t.children.length * 90);
+        }
+        if (en.target.hasAttribute('data-count')) countUp(en.target);
+        io.unobserve(en.target);
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    function reveal(selector, variant) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        if (el.closest('.tabpanel')) return; // tabovi imaju svoju animaciju
+        el.classList.add('reveal');
+        if (variant) el.classList.add('reveal--' + variant);
+        io.observe(el);
+      });
+    }
+    reveal('.section-title, .eyebrow:not(.hero .eyebrow), .lead, .contact-cta, .banner');
+    reveal('.split__text', 'left');
+    reveal('.split__media, .feature__text', 'right');
+    reveal('.feature__media, .locations__lead', 'zoom');
+
+    // grupe koje se pojavljuju jedna po jedna stavka
+    document.querySelectorAll('.services__track, .checks, .loc-grid, .reviews__track, .faq, .footer__grid, .contact-cta__cards').forEach(function (group) {
+      group.classList.add('stagger');
+      Array.prototype.forEach.call(group.children, function (c, idx) { c.style.setProperty('--i', idx); });
+      io.observe(group);
+    });
+
+    // brojač „60 min“
+    var stat = document.querySelector('.stat-card strong');
+    if (stat) { stat.setAttribute('data-count', '60'); io.observe(stat); }
+  }
+
+  /* ---------- Brojač ---------- */
+  function countUp(el) {
+    var end = parseInt(el.getAttribute('data-count'), 10);
+    var unit = el.querySelector('small');
+    var start = performance.now(), dur = 1400;
+    function tick(now) {
+      var t = Math.min((now - start) / dur, 1);
+      var val = Math.round(end * (1 - Math.pow(1 - t, 3)));
+      el.firstChild.nodeValue = val;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    if (unit && el.firstChild.nodeType === 3) requestAnimationFrame(tick);
+  }
+
+  /* ---------- Traka napretka čitanja ---------- */
+  var bar = document.createElement('div');
+  bar.className = 'read-progress';
+  document.body.appendChild(bar);
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+      ticking = false;
+    });
+  }, { passive: true });
+
+  /* ---------- Paralaksa panorame ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pano = document.querySelector('.locations__bg img');
+  var locSec = document.getElementById('lokacije');
+  if (pano && !reduce) {
+    pano.style.transform = 'scale(1.15)';
+    window.addEventListener('scroll', function () {
+      var r = locSec.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      var p = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      pano.style.transform = 'scale(1.15) translateY(' + (p * 40).toFixed(1) + 'px)';
+    }, { passive: true });
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
