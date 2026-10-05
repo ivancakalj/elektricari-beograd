@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Električar Beograd – Hitne intervencije 24/7, električarske usluge</title>
+  <meta name="description" content="Električar Beograd – dežurna služba 24/7. Dolazak u roku od 1 sat na sve lokacije u Beogradu. Zamena osigurača, popravka bojlera, servis šporeta, servis TA peći, montaža LED rasvete. Garancija na sve usluge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23F26B1D'/%3E%3Cpath d='M13 3 6 13.5h5L10 21l7-10.5h-5z' fill='%23fff'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- SVG ikonice -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z" fill="currentColor"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="m7.5 12.2 3 3 6-6.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z" fill="currentColor"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ============ HEADER + HERO ============ -->
+<div class="hero-wrap" id="pocetna">
+  <section class="hero">
+    <img class="hero__bg" src="images/hero-elektricar.jpg" alt="Električar proverava električno brojilo i instalaciju" fetchpriority="high">
+
+    <header class="nav" id="nav">
+      <a class="logo" href="#pocetna" aria-label="Električar Beograd – početna">
+        <span class="logo__mark"><svg><use href="#i-bolt"/></svg></span>
+        <span class="logo__text">Električar<b>Beograd</b></span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
+        <a href="#pocetna" class="is-active">Početna</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#zasto-mi">Zašto mi</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#lokacije">Lokacije</a>
+        <a href="#pitanja">Pitanja</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="pill-phone" href="tel:0616686596">
+          <span class="pill-phone__icon"><svg><use href="#i-phone"/></svg></span>
+          <span class="pill-phone__txt"><small>Dežurni 24/7</small>061/668-65-96</span>
+        </a>
+        <a class="btn btn--accent btn--sm nav__book" href="#kontakt">Zakažite</a>
+        <button class="nav__burger" id="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <div class="hero__content">
+      <span class="eyebrow eyebrow--light"><span class="dot-live"></span> Dežurna služba – non-stop 24/7</span>
+      <h1>Hitne intervencije &amp; električarske usluge u Beogradu</h1>
+      <p>Električar Beograd dolazi u roku od <strong>1 sat</strong> na sve lokacije u Beogradu i okolini – zamena osigurača, popravka bojlera, servis šporeta i povratak struje.</p>
+      <div class="hero__actions">
+        <a class="btn btn--accent" href="tel:0616686596">Pozovite odmah</a>
+        <a class="btn-circle btn-circle--accent" href="#usluge" aria-label="Pogledajte usluge"><svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="hero__badge">
+      <span class="hero__badge-icon"><svg><use href="#i-shield"/></svg></span>
+      <span><strong>Garancija</strong> na sve usluge</span>
+    </div>
+  </section>
+</div>
+
+<!-- ============ TRAKA LOKACIJA ============ -->
+<section class="trust">
+  <p class="trust__title">Dolazimo na sve lokacije u Beogradu i okolini</p>
+  <div class="marquee" aria-label="Opštine koje pokrivamo">
+    <div class="marquee__track">
+      <span>Čukarica</span><span>Novi Beograd</span><span>Palilula</span><span>Rakovica</span><span>Savski Venac</span><span>Stari Grad</span><span>Surčin</span><span>Voždovac</span><span>Vračar</span><span>Zemun</span><span>Zvezdara</span>
+      <span aria-hidden="true">Čukarica</span><span aria-hidden="true">Novi Beograd</span><span aria-hidden="true">Palilula</span><span aria-hidden="true">Rakovica</span><span aria-hidden="true">Savski Venac</span><span aria-hidden="true">Stari Grad</span><span aria-hidden="true">Surčin</span><span aria-hidden="true">Voždovac</span><span aria-hidden="true">Vračar</span><span aria-hidden="true">Zemun</span><span aria-hidden="true">Zvezdara</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USLUGE (slider) ============ -->
+<section class="section services" id="usluge">
+  <div class="container">
+    <h2 class="section-title center">Vaš pouzdani<br>električar u Beogradu</h2>
+  </div>
+
+  <div class="services__viewport">
+    <div class="services__track" id="servicesTrack">
+
+      <article class="svc is-active">
+        <img src="images/usluga-hitne-intervencije.jpg" alt="Električar na hitnoj intervenciji" loading="lazy">
+        <span class="svc__num">01</span>
+        <div class="svc__body">
+          <h3>Hitne<br>intervencije</h3>
+          <p>Ponovno uspostavljanje električnog napajanja i otklanjanje kvara – majstor izlazi odmah po prijemu poziva, 24 sata dnevno.</p>
+          <a class="btn btn--accent btn--sm" href="tel:0616686596">Pozovite odmah</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/zamena-osiguraca.jpg" alt="Zamena automatskih osigurača u razvodnoj tabli" loading="lazy">
+        <span class="svc__num">02</span>
+        <div class="svc__body">
+          <h3>Zamena<br>osigurača</h3>
+          <p>Zamena topljivih i automatskih osigurača, provera da li je snaga osigurača pravilno dimenzionisana instalaciji.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/popravka-bojlera.jpg" alt="Grejač bojlera sa naslagama kamenca" loading="lazy">
+        <span class="svc__num">03</span>
+        <div class="svc__body">
+          <h3>Popravka<br>bojlera</h3>
+          <p>Zamena grejača i termostata, servis protočnih i kuhinjskih bojlera, zamena sigurnosnog ventila.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/servis-sporeta.jpg" alt="Servis električnog šporeta i rerne" loading="lazy">
+        <span class="svc__num">04</span>
+        <div class="svc__body">
+          <h3>Servis<br>šporeta</h3>
+          <p>Popravka rerne, kuhinjskih ploča i zamena ringle, termostata ili prekidača – uz montažu trofazne utičnice po potrebi.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/usluga-merenje.jpg" alt="Merenje električnih svojstava multimetrom" loading="lazy">
+        <span class="svc__num">05</span>
+        <div class="svc__body">
+          <h3>Servis<br>TA peći</h3>
+          <p>Zamena pregorelog grejača i termostata termoakumulacione peći, zajedno sa zamenom osigurača u razvodnoj tabli.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/usluga-led-rasveta.jpg" alt="Viseća LED rasveta i lusteri" loading="lazy">
+        <span class="svc__num">06</span>
+        <div class="svc__body">
+          <h3>Montaža<br>LED rasvete</h3>
+          <p>Zamena i montaža lustera i plafonjera, LED i RGB rasveta sa opcijom daljinskog upravljanja.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/montaza-razvodne-table.jpg" alt="Montaža električnog ormana sa osiguračima" loading="lazy">
+        <span class="svc__num">07</span>
+        <div class="svc__body">
+          <h3>Razvodne<br>table</h3>
+          <p>Montaža električnog ormana sa osiguračima, ugradnja Fid sklopki, prekidača, utičnica i tastera.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/zamena-kablova.jpg" alt="Kablovi i alat za električnu instalaciju" loading="lazy">
+        <span class="svc__num">08</span>
+        <div class="svc__body">
+          <h3>Instalacije<br>i kablovi</h3>
+          <p>Postavljanje električne instalacije i kablova za struju, kablova za računare i povezivanje rutera.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <img src="images/usluga-pametni-uredjaji.jpg" alt="Pametna brava upravljana telefonom" loading="lazy">
+        <span class="svc__num">09</span>
+        <div class="svc__body">
+          <h3>„Pametni“<br>uređaji</h3>
+          <p>Popravka i povezivanje pametnih uređaja sa daljinskom kontrolom, zvona i interfona na ulaznim vratima.</p>
+          <a class="btn btn--accent btn--sm" href="#kontakt">Zatražite uslugu</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="container services__controls">
+    <div class="progress"><span id="servicesProgress"></span></div>
+    <div class="arrows">
+      <button class="arrow" id="svcPrev" aria-label="Prethodna usluga"><svg><use href="#i-left"/></svg></button>
+      <button class="arrow arrow--accent" id="svcNext" aria-label="Sledeća usluga"><svg><use href="#i-right"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANER ============ -->
+<section class="container">
+  <div class="banner">
+    <div class="banner__text">
+      <h2>Urađeno <em>kako treba</em>,<br><em>iz prvog</em> puta</h2>
+      <div class="banner__actions">
+        <a class="btn btn--light" href="#kontakt">Zakažite dolazak</a>
+        <a class="pill-phone pill-phone--light" href="tel:0616686596">
+          <span class="pill-phone__icon"><svg><use href="#i-phone"/></svg></span>
+          <span class="pill-phone__txt"><small>Dan ili noć</small>061/668-65-96</span>
+        </a>
+      </div>
+    </div>
+    <div class="banner__circles" aria-hidden="true">
+      <img class="c c1" src="images/krug-2.jpg" alt="" loading="lazy">
+      <img class="c c2" src="images/krug-3.jpg" alt="" loading="lazy">
+      <img class="c c3" src="images/krug-1.jpg" alt="" loading="lazy">
+      <span class="ring r1"></span><span class="ring r2"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZAŠTO MI ============ -->
+<section class="section" id="zasto-mi">
+  <div class="container split">
+    <div class="split__text">
+      <span class="eyebrow">Brza i precizna električarska usluga</span>
+      <h2 class="section-title">Zašto baš mi</h2>
+      <p class="lead">Ciljana dijagnostika sa preciznim opisom gde je električni kvar, koncizan predlog daljih aktivnosti i promptna realizacija na celoj teritoriji Beograda.</p>
+      <ul class="checks">
+        <li><svg><use href="#i-check"/></svg><p><strong>Brza usluga bez „razvlačenja“.</strong> Popravku sprovodimo odmah, na licu mesta.</p></li>
+        <li><svg><use href="#i-check"/></svg><p><strong>Jasna konstatacija bez „fingiranja“.</strong> Nema priče da je kvar „jako komplikovan i skup“ – kažemo tačno šta je problem.</p></li>
+        <li><svg><use href="#i-check"/></svg><p><strong>Promptna usluga bez „odlaganja danima“.</strong> Dolazimo na adresu u roku od 1 sat, bez obzira na obim posla.</p></li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn--accent" href="#kontakt">Zatražite uslugu</a>
+        <a class="btn-circle btn-circle--accent" href="#kontakt" aria-label="Kontakt"><svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="split__media">
+      <img src="images/kuhinja.jpg" alt="Moderna kuhinja sa visećom rasvetom" loading="lazy">
+      <div class="stat-card">
+        <strong>60<small>min</small></strong>
+        <span>prosečno vreme dolaska na adresu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEMA STRUJE ============ -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="feature">
+      <div class="feature__media">
+        <img src="images/enterijer.jpg" alt="Kuhinja sa ugradnom rasvetom" loading="lazy">
+        <div class="feature__tag">
+          <span class="feature__tag-icon"><svg><use href="#i-shield"/></svg></span>
+          <span>Garancija na uslugu<br>i ugrađeni repromaterijal</span>
+        </div>
+      </div>
+      <div class="feature__text">
+        <span class="eyebrow">Svaki električni kvar – mali ili veliki</span>
+        <h2 class="section-title">Nema struje?<br>Nema problema.</h2>
+        <p>Bez struje nema ni svetla, ni grejanja, ni tople vode. Zato Električar Beograd radi kao <strong>dežurna služba</strong> – majstor izlazi na lice mesta odmah po prijemu poziva, a popravka struje je moguća 24 sata dnevno, 7 dana u nedelji, 365 dana u godini.</p>
+        <p>Ako ste ostali bez struje, pozovite nas prvo. Pronaći ćemo kvar, otkloniti ga i vratiti napajanje – brzo, uredno i bezbedno.</p>
+        <div class="actions">
+          <a class="btn btn--accent" href="tel:0616686596">Pozovite 061/668-65-96</a>
+          <a class="btn-circle btn-circle--accent" href="tel:0616686596" aria-label="Pozovite"><svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O NAMA (tabovi) ============ -->
+<section class="section" id="o-nama">
+  <div class="container split split--top">
+    <div class="split__text">
+      <div class="tabs" role="tablist" aria-label="O nama">
+        <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tab-1" id="t-1">Električar Beograd</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-2" id="t-2" tabindex="-1">Prednosti</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-3" id="t-3" tabindex="-1">Saveti majstora</button>
+      </div>
+
+      <div class="tabpanel is-active" role="tabpanel" id="tab-1" aria-labelledby="t-1">
+        <h2 class="section-title">Električar Beograd – vaš majstor za struju</h2>
+        <p>Hitne intervencije za grad Beograd i kvalitetne električarske usluge, popravke električnih uređaja i električnih instalacija. Odlikuje nas profesionalan pristup, tržišne cene i garancija na sve usluge.</p>
+        <p>Tim čine iskusni i obučeni električari koji posvećuju pažnju svakoj popravci, urednosti i sa strpljenjem sprovode električarske usluge – na Novom Beogradu, Zemunu, Voždovcu, Zvezdari i svuda u gradu. Za strance koji borave u Srbiji odgovaramo i na engleskom jeziku (<em>Electrician Belgrade</em>).</p>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="tab-2" aria-labelledby="t-2" hidden>
+        <h2 class="section-title">Ključne prednosti</h2>
+        <ul class="bullets">
+          <li>Promptni izlazak u Beogradu i okolini – hitne intervencije</li>
+          <li>Dežurna služba raspoloživa 24/7</li>
+          <li>Kvalitetna usluga sprovedena sa pažnjom i strpljenjem</li>
+          <li>Kvalifikovani i iskusni majstori električari</li>
+          <li>Profesionalan pristup za svaki kvar</li>
+          <li>Kompletne električarske usluge</li>
+          <li>Kvalitetni repromaterijali koji se ugrađuju</li>
+          <li>Garancija na uslugu</li>
+        </ul>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="tab-3" aria-labelledby="t-3" hidden>
+        <h2 class="section-title">Bezbednost na prvom mestu</h2>
+        <p>Svaka popravka uređaja jake ili slabe struje mora se sprovesti u skladu sa elektrotehničkim pravilima. Fazni provodnik označava se <strong>braon, crnom, sivom</strong> ili <strong>crvenom</strong> bojom, nulti provodnik <strong>plavom</strong>, a zaštitni provodnik (uzemljenje) <strong>žuto-zelenom</strong> bojom.</p>
+        <p class="note"><strong>Pažnja:</strong> nikada ne „krpite“ topljivi osigurač tankim žicama. Ne zna se na kojoj jačini struje će takav osigurač pregoreti, a nedostaje i kvarcni pesak koji „hvata“ električni luk. Pozovite električara.</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--accent" href="#kontakt">Kontaktirajte nas</a>
+        <a class="btn-circle btn-circle--accent" href="#kontakt" aria-label="Kontakt"><svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="split__media split__media--tall">
+      <img src="images/kuca-vece.jpg" alt="Osvetljena porodična kuća u sumrak" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOKACIJE ============ -->
+<section class="locations" id="lokacije">
+  <div class="locations__bg" aria-hidden="true"><img src="images/panorama.jpg" alt=""></div>
+  <div class="container locations__inner">
+    <span class="eyebrow eyebrow--light center">Pokrivamo celu teritoriju grada</span>
+    <h2 class="section-title center light">Električar za svaku opštinu u Beogradu</h2>
+    <p class="locations__lead">Majstori Električar Beograd su tim odgovoran za celokupnu teritoriju Beograda – od Zemuna i Novog Beograda do Voždovca, Zvezdare i okoline.</p>
+
+    <div class="loc-grid">
+      <a class="loc" href="#kontakt">Čukarica</a><a class="loc" href="#kontakt">Novi Beograd</a><a class="loc" href="#kontakt">Palilula</a>
+      <a class="loc" href="#kontakt">Rakovica</a><a class="loc" href="#kontakt">Savski Venac</a><a class="loc" href="#kontakt">Stari Grad</a>
+      <a class="loc" href="#kontakt">Surčin</a><a class="loc" href="#kontakt">Voždovac</a><a class="loc" href="#kontakt">Vračar</a>
+      <a class="loc" href="#kontakt">Zemun</a><a class="loc" href="#kontakt">Zvezdara</a><a class="loc loc--accent" href="tel:0616686596">Okolina Beograda</a>
+    </div>
+
+    <p class="loc-small">Banovo Brdo · Banjica · Batajnica · Bežanijska Kosa · Borča · Cerak · Dedinje · Dorćol · Galenika · Kaluđerica · Karaburma · Konjarnik · Košutnjak · Krnjača · Kumodraž · Ledine · Miljakovac · Mirijevo · Resnik · Senjak · Vidikovac · Vinča · Višnjička Banja · Žarkovo · Železnik · Zemun Polje</p>
+  </div>
+</section>
+
+<!-- ============ PITANJA ============ -->
+<section class="section" id="pitanja">
+  <div class="container faq-wrap">
+    <div>
+      <span class="eyebrow">Saveti iz prakse</span>
+      <h2 class="section-title">Najčešća pitanja</h2>
+      <p class="lead">Iz opširne ponude izdvajamo zahteve sa kojima nam se korisnici najčešće obraćaju.</p>
+      <a class="pill-phone pill-phone--outline" href="tel:0616686596">
+        <span class="pill-phone__icon"><svg><use href="#i-phone"/></svg></span>
+        <span class="pill-phone__txt"><small>Imate drugo pitanje?</small>061/668-65-96</span>
+      </a>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Zašto „iskače“ osigurač?<svg><use href="#i-plus"/></svg></summary>
+        <p>Osigurač je predviđen da bude najslabija karika u lancu napajanja i da štiti instalaciju. Kada se na istu fazu istovremeno uključe veliki potrošači – na primer fen i veš mašina, ili TA peć i grejalica na istoj utičnici – dolazi do „iskakanja“ automatskog ili pregorevanja topljivog osigurača.</p>
+      </details>
+      <details>
+        <summary>Zašto bojler prestane da greje?<svg><use href="#i-plus"/></svg></summary>
+        <p>Najčešći uzrok je grejač koji je pregoreo usled galvanske korozije i nataloženog kamenca. Kvar je često i u termostatu – bojler ima regulacioni i sigurnosni termostat. Prilikom popravke preporučujemo i zamenu sigurnosnog ventila koji reguliše pritisak vode.</p>
+      </details>
+      <details>
+        <summary>Šta je najčešći kvar šporeta?<svg><use href="#i-plus"/></svg></summary>
+        <p>Kvar vrlo često leži u grejaču rerne ili pregorelom kablu. Ako dijagnostika pokaže da treba zameniti termostat, prekidač ili ringlu, kvar otklanjamo odmah i proveravamo da li je potrebna montaža trofazne utičnice radi ravnomernog opterećenja faza.</p>
+      </details>
+      <details>
+        <summary>Zašto se kvari TA peć?<svg><use href="#i-plus"/></svg></summary>
+        <p>Najčešći uzroci su pregoreli grejač i otkaz termostata. Grejač koji zagreva šamotne blokove izložen je visokim temperaturama, a pri kvaru često istovremeno pregori i topljivi osigurač u razvodnoj tabli.</p>
+      </details>
+      <details>
+        <summary>Koja je razlika između monofazne i trofazne struje?<svg><use href="#i-plus"/></svg></summary>
+        <p>Monofazna mreža ima jednu fazu, nulti i zaštitni provodnik (uzemljenje). Trofazna koristi tri faze, označene slovima R, S i T, dok su nula i uzemljenje isti kao kod monofaznog sistema. Napon je danas 230/240 V kod monofazne i 400 V kod trofazne mreže.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA KONTAKT ============ -->
+<section class="container" id="kontakt">
+  <div class="contact-cta">
+    <div>
+      <span class="eyebrow eyebrow--light">Dežurna služba · Ponedeljak – Nedelja 00–24 h</span>
+      <h2>Potreban vam je električar hitno?</h2>
+      <p>Pozovite nas – majstor izlazi na lice mesta odmah po prijemu poziva.</p>
+    </div>
+    <div class="contact-cta__cards">
+      <a class="ccard" href="tel:0616686596"><svg><use href="#i-phone"/></svg><span><small>Mobilni</small>061/668-65-96</span></a>
+      <a class="ccard" href="tel:0116460921"><svg><use href="#i-phone"/></svg><span><small>Fiksni</small>011/646-09-21</span></a>
+      <a class="ccard" href="mailto:info@elektricari.com"><svg><use href="#i-mail"/></svg><span><small>E-mail</small>info@elektricari.com</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <h4>Korisni linkovi</h4>
+      <ul>
+        <li><a href="#pocetna">Početna</a></li>
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#zasto-mi">Zašto mi</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#pitanja">Najčešća pitanja</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Usluge</h4>
+      <ul>
+        <li>Hitne intervencije</li>
+        <li>Zamena osigurača</li>
+        <li>Popravka bojlera</li>
+        <li>Servis šporeta</li>
+        <li>Servis TA peći</li>
+        <li>Montaža LED rasvete</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer__contact">
+        <li><svg><use href="#i-pin"/></svg>Beograd 11000, Srbija</li>
+        <li><svg><use href="#i-phone"/></svg><a href="tel:0616686596">061/668-65-96</a></li>
+        <li><svg><use href="#i-phone"/></svg><a href="tel:0116460921">011/646-09-21</a></li>
+        <li><svg><use href="#i-mail"/></svg><a href="mailto:info@elektricari.com">info@elektricari.com</a></li>
+        <li><svg><use href="#i-clock"/></svg>Ponedeljak – Nedelja 00–24 h</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Garancija</h4>
+      <div class="guarantee">
+        <span class="guarantee__icon"><svg><use href="#i-shield"/></svg></span>
+        <p>Garancija na sve usluge i ugrađeni repromaterijal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <a class="logo logo--light" href="#pocetna">
+      <span class="logo__mark"><svg><use href="#i-bolt"/></svg></span>
+      <span class="logo__text">Električar<b>Beograd</b></span>
+    </a>
+    <p>© <span id="year">2026</span> Električar Beograd · Hitne intervencije 24/7</p>
+    <a class="btn btn--accent btn--sm" href="tel:0616686596">061/668-65-96</a>
+  </div>
+</footer>
+
+<!-- plutajuće dugme za poziv (mobilni) -->
+<a class="fab-call" href="tel:0616686596" aria-label="Pozovite električara"><svg><use href="#i-phone"/></svg><span>Pozovite</span></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
