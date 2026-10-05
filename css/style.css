@@ -336,6 +336,42 @@ button { font: inherit; cursor: pointer; }
 .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 30px; flex-wrap: wrap; }
 .footer__bottom p { margin: 0; opacity: .7; font-size: .85rem; }
 
+/* ---------- Utisci (recenzije) ---------- */
+.reviews {
+  margin: 14px; border-radius: 28px; padding: 90px 0;
+  background: radial-gradient(120% 140% at 0% 0%, #ff8a3d 0%, var(--accent) 45%, #c9470a 100%);
+  color: #fff;
+}
+.reviews .eyebrow--light { color: var(--ink); }
+.reviews__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 36px; flex-wrap: wrap; }
+.reviews__head .section-title { margin: 0; }
+.arrow--ghost { background: transparent; border-color: rgba(255,255,255,.6); color: #fff; }
+.arrow--ghost:hover { border-color: #fff; background: rgba(255,255,255,.12); }
+.reviews .arrow--accent { background: var(--ink); border-color: var(--ink); }
+.reviews .arrow--accent:hover { background: var(--ink-2); border-color: var(--ink-2); }
+.reviews__track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * 18px) / 4);
+  gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; padding-bottom: 4px;
+}
+.reviews__track::-webkit-scrollbar { display: none; }
+.review {
+  scroll-snap-align: start; background: #fff; color: var(--text); border-radius: 20px; padding: 22px;
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+}
+.review__head { display: flex; align-items: center; gap: 12px; }
+.review__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--ink); color: var(--amber); display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: .9rem; flex-shrink: 0; }
+.review__who { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.review__who strong { font-family: var(--font-head); color: var(--ink); }
+.review__who small { color: var(--muted); font-size: .8rem; }
+.review__g { width: 22px; height: 22px; margin-left: auto; }
+.stars { color: #fbbc05; letter-spacing: 2px; font-size: 1.05rem; line-height: 1; }
+.review p { margin: 0; color: var(--muted); font-size: .93rem; flex: 1; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; }
+.review p.is-open { -webkit-line-clamp: unset; }
+.review__more { align-self: flex-start; background: none; border: 0; padding: 0; color: var(--ink); font-weight: 600; font-size: .82rem; text-decoration: underline; }
+.review__link { font-size: .82rem; font-weight: 600; color: var(--accent); }
+.review__link:hover { text-decoration: underline; }
+
 /* ---------- Plutajuće dugme ---------- */
 .fab-call {
   position: fixed; right: 16px; bottom: 16px; z-index: 50;
@@ -359,6 +395,8 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 960px) {
+  .reviews__track { grid-auto-columns: calc((100% - 18px) / 2); }
+  .reviews { padding: 70px 0; }
   .section { padding: 80px 0; }
   .section--tight { padding-bottom: 80px; }
   .nav { padding: 16px 18px; }
@@ -399,6 +437,8 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 560px) {
+  .reviews { margin: 8px; }
+  .reviews__track { grid-auto-columns: 86%; }
   .hero-wrap { padding: 8px; }
   .hero { min-height: 640px; border-radius: 22px; }
   .hero::after { background: linear-gradient(180deg, rgba(10,18,34,.55) 0%, rgba(10,18,34,.35) 35%, rgba(10,18,34,.92) 100%); }

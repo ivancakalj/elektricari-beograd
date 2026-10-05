@@ -40,6 +40,34 @@
   document.getElementById('svcNext').addEventListener('click', function () { activate(current + 1); });
   progress.style.width = (1 / cards.length * 100) + '%';
 
+  /* ---------- Recenzije ---------- */
+  var revTrack = document.getElementById('reviewsTrack');
+  function revScroll(dir) {
+    var card = revTrack.querySelector('.review');
+    var step = card ? card.offsetWidth + 18 : 300;
+    var max = revTrack.scrollWidth - revTrack.clientWidth;
+    var target = revTrack.scrollLeft + dir * step;
+    if (target > max + 5) target = 0;
+    if (target < -5) target = max;
+    revTrack.scrollTo({ left: target, behavior: 'smooth' });
+  }
+  document.getElementById('revPrev').addEventListener('click', function () { revScroll(-1); });
+  document.getElementById('revNext').addEventListener('click', function () { revScroll(1); });
+
+  // duge recenzije: dugme „Prikaži više“
+  revTrack.querySelectorAll('.review p').forEach(function (p) {
+    if (p.scrollHeight <= p.clientHeight + 2) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'review__more';
+    btn.textContent = 'Prikaži više';
+    btn.addEventListener('click', function () {
+      var open = p.classList.toggle('is-open');
+      btn.textContent = open ? 'Prikaži manje' : 'Prikaži više';
+    });
+    p.after(btn);
+  });
+
   /* ---------- Tabovi ---------- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   function selectTab(tab) {
@@ -74,7 +102,7 @@
   });
 
   /* ---------- Aktivni link u meniju ---------- */
-  var sections = ['pocetna', 'usluge', 'zasto-mi', 'o-nama', 'lokacije', 'pitanja', 'kontakt']
+  var sections = ['pocetna', 'usluge', 'zasto-mi', 'o-nama', 'lokacije', 'utisci', 'pitanja', 'kontakt']
     .map(function (id) { return document.getElementById(id); });
 
   if ('IntersectionObserver' in window) {
@@ -89,7 +117,7 @@
     sections.forEach(function (s) { if (s) spy.observe(s); });
 
     /* ---------- Animacija pri skrolu ---------- */
-    var revealEls = document.querySelectorAll('.section-title, .split__media, .feature, .banner, .loc-grid, .faq, .contact-cta, .checks');
+    var revealEls = document.querySelectorAll('.section-title, .split__media, .feature, .banner, .loc-grid, .reviews__track, .faq, .contact-cta, .checks');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
