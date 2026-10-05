@@ -23,15 +23,27 @@
   var progress = document.getElementById('servicesProgress');
   var current = 0;
 
+  // konačna pozicija kartice: sve kartice pre nje su skupljene
+  function targetLeft(i) {
+    var other = cards[i === 0 ? 1 : 0];
+    var collapsed = parseFloat(getComputedStyle(other).flexBasis) || other.offsetWidth;
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+    return i * (collapsed + gap);
+  }
+
   function activate(i) {
     current = (i + cards.length) % cards.length;
     cards.forEach(function (c, idx) { c.classList.toggle('is-active', idx === current); });
     progress.style.width = ((current + 1) / cards.length * 100) + '%';
-    // sačekaj da se kartica proširi pa je pomeri u vidno polje
-    setTimeout(function () {
-      track.scrollTo({ left: cards[current].offsetLeft - track.offsetLeft, behavior: 'smooth' });
-    }, 60);
+    track.scrollTo({ left: targetLeft(current), behavior: 'smooth' });
   }
+
+  // kad se kartica do kraja proširi, poravnaj ako je skrol završio pre vremena
+  track.addEventListener('transitionend', function (e) {
+    if (e.propertyName !== 'flex-basis' || e.target !== cards[current]) return;
+    var left = targetLeft(current);
+    if (Math.abs(track.scrollLeft - left) > 2) track.scrollTo({ left: left, behavior: 'smooth' });
+  });
 
   cards.forEach(function (card, idx) {
     card.addEventListener('click', function () { if (idx !== current) activate(idx); });
