@@ -30,35 +30,37 @@
   <symbol id="i-google" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 6 12 6z" fill="#EA4335"/></symbol>
 </svg>
 
-<!-- ============ HEADER + HERO ============ -->
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+  <a class="logo" href="#pocetna" aria-label="Električar Beograd – početna">
+    <span class="logo__mark"><svg><use href="#i-bolt"/></svg></span>
+    <span class="logo__text">Električar<b>Beograd</b></span>
+  </a>
+  <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
+    <a href="#pocetna" class="is-active">Početna</a>
+    <a href="#usluge">Usluge</a>
+    <a href="#zasto-mi">Zašto mi</a>
+    <a href="#o-nama">O nama</a>
+    <a href="#lokacije">Lokacije</a>
+    <a href="#utisci">Utisci</a>
+    <a href="#pitanja">Pitanja</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <div class="nav__cta">
+    <a class="pill-phone" href="tel:0616686596">
+      <span class="pill-phone__icon"><svg><use href="#i-phone"/></svg></span>
+      <span class="pill-phone__txt"><small>Dežurni 24/7</small>061/668-65-96</span>
+    </a>
+    <a class="btn btn--accent btn--sm nav__book" href="#kontakt">Zakažite</a>
+    <button class="nav__burger" id="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
 <div class="hero-wrap" id="pocetna">
   <section class="hero">
     <img class="hero__bg" src="images/hero-elektricar.jpg" alt="Električar proverava osigurače u razvodnoj tabli" fetchpriority="high">
 
-    <header class="nav" id="nav">
-      <a class="logo" href="#pocetna" aria-label="Električar Beograd – početna">
-        <span class="logo__mark"><svg><use href="#i-bolt"/></svg></span>
-        <span class="logo__text">Električar<b>Beograd</b></span>
-      </a>
-      <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
-        <a href="#pocetna" class="is-active">Početna</a>
-        <a href="#usluge">Usluge</a>
-        <a href="#zasto-mi">Zašto mi</a>
-        <a href="#o-nama">O nama</a>
-        <a href="#lokacije">Lokacije</a>
-        <a href="#utisci">Utisci</a>
-        <a href="#pitanja">Pitanja</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <div class="nav__cta">
-        <a class="pill-phone" href="tel:0616686596">
-          <span class="pill-phone__icon"><svg><use href="#i-phone"/></svg></span>
-          <span class="pill-phone__txt"><small>Dežurni 24/7</small>061/668-65-96</span>
-        </a>
-        <a class="btn btn--accent btn--sm nav__book" href="#kontakt">Zakažite</a>
-        <button class="nav__burger" id="burger" aria-label="Otvori meni" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-      </div>
-    </header>
 
     <div class="hero__content">
       <span class="eyebrow eyebrow--light"><span class="dot-live"></span> Dežurna služba – non-stop 24/7</span>
@@ -423,23 +425,23 @@
     <div class="faq">
       <details open>
         <summary>Zašto „iskače“ osigurač?<svg><use href="#i-plus"/></svg></summary>
-        <p>Osigurač je predviđen da bude najslabija karika u lancu napajanja i da štiti instalaciju. Kada se na istu fazu istovremeno uključe veliki potrošači – na primer fen i veš mašina, ili TA peć i grejalica na istoj utičnici – dolazi do „iskakanja“ automatskog ili pregorevanja topljivog osigurača.</p>
+        <div class="faq__body"><p>Osigurač je predviđen da bude najslabija karika u lancu napajanja i da štiti instalaciju. Kada se na istu fazu istovremeno uključe veliki potrošači – na primer fen i veš mašina, ili TA peć i grejalica na istoj utičnici – dolazi do „iskakanja“ automatskog ili pregorevanja topljivog osigurača.</p></div>
       </details>
       <details>
         <summary>Zašto bojler prestane da greje?<svg><use href="#i-plus"/></svg></summary>
-        <p>Najčešći uzrok je grejač koji je pregoreo usled galvanske korozije i nataloženog kamenca. Kvar je često i u termostatu – bojler ima regulacioni i sigurnosni termostat. Prilikom popravke preporučujemo i zamenu sigurnosnog ventila koji reguliše pritisak vode.</p>
+        <div class="faq__body"><p>Najčešći uzrok je grejač koji je pregoreo usled galvanske korozije i nataloženog kamenca. Kvar je često i u termostatu – bojler ima regulacioni i sigurnosni termostat. Prilikom popravke preporučujemo i zamenu sigurnosnog ventila koji reguliše pritisak vode.</p></div>
       </details>
       <details>
         <summary>Šta je najčešći kvar šporeta?<svg><use href="#i-plus"/></svg></summary>
-        <p>Kvar vrlo često leži u grejaču rerne ili pregorelom kablu. Ako dijagnostika pokaže da treba zameniti termostat, prekidač ili ringlu, kvar otklanjamo odmah i proveravamo da li je potrebna montaža trofazne utičnice radi ravnomernog opterećenja faza.</p>
+        <div class="faq__body"><p>Kvar vrlo često leži u grejaču rerne ili pregorelom kablu. Ako dijagnostika pokaže da treba zameniti termostat, prekidač ili ringlu, kvar otklanjamo odmah i proveravamo da li je potrebna montaža trofazne utičnice radi ravnomernog opterećenja faza.</p></div>
       </details>
       <details>
         <summary>Zašto se kvari TA peć?<svg><use href="#i-plus"/></svg></summary>
-        <p>Najčešći uzroci su pregoreli grejač i otkaz termostata. Grejač koji zagreva šamotne blokove izložen je visokim temperaturama, a pri kvaru često istovremeno pregori i topljivi osigurač u razvodnoj tabli.</p>
+        <div class="faq__body"><p>Najčešći uzroci su pregoreli grejač i otkaz termostata. Grejač koji zagreva šamotne blokove izložen je visokim temperaturama, a pri kvaru često istovremeno pregori i topljivi osigurač u razvodnoj tabli.</p></div>
       </details>
       <details>
         <summary>Koja je razlika između monofazne i trofazne struje?<svg><use href="#i-plus"/></svg></summary>
-        <p>Monofazna mreža ima jednu fazu, nulti i zaštitni provodnik (uzemljenje). Trofazna koristi tri faze, označene slovima R, S i T, dok su nula i uzemljenje isti kao kod monofaznog sistema. Napon je danas 230/240 V kod monofazne i 400 V kod trofazne mreže.</p>
+        <div class="faq__body"><p>Monofazna mreža ima jednu fazu, nulti i zaštitni provodnik (uzemljenje). Trofazna koristi tri faze, označene slovima R, S i T, dok su nula i uzemljenje isti kao kod monofaznog sistema. Napon je danas 230/240 V kod monofazne i 400 V kod trofazne mreže.</p></div>
       </details>
     </div>
   </div>
@@ -515,8 +517,6 @@
   </div>
 </footer>
 
-<!-- plutajuće dugme za poziv (mobilni) -->
-<a class="fab-call" href="tel:0616686596" aria-label="Pozovite električara"><svg><use href="#i-phone"/></svg><span>Pozovite</span></a>
 
 <script src="js/main.js"></script>
 </body>

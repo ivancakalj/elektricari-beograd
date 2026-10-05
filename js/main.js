@@ -17,6 +17,17 @@
     });
   });
 
+  /* ---------- Meni prati skrol ---------- */
+  function onNavScroll() { nav.classList.toggle('is-scrolled', window.scrollY > 30); }
+  onNavScroll();
+  window.addEventListener('scroll', onNavScroll, { passive: true });
+  document.addEventListener('click', function (e) {
+    if (nav.classList.contains('is-open') && !nav.contains(e.target)) {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   /* ---------- Slider usluga ---------- */
   var track = document.getElementById('servicesTrack');
   var cards = Array.prototype.slice.call(track.querySelectorAll('.svc'));
@@ -104,12 +115,38 @@
     });
   });
 
-  /* ---------- FAQ: samo jedno otvoreno ---------- */
-  var faqs = document.querySelectorAll('.faq details');
+  /* ---------- FAQ: glatko otvaranje/zatvaranje, samo jedno otvoreno ---------- */
+  var faqs = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
+  var faqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function animateDetails(d, open) {
+    if (d._anim) d._anim.cancel();
+    var summary = d.querySelector('summary');
+    var start = d.offsetHeight;
+    if (open) d.open = true;
+    d.classList.toggle('is-closing', !open);
+    var end = open ? d.offsetHeight : summary.offsetHeight + 8; // 8 = vertikalni padding
+    if (faqReduce.matches || !d.animate) {
+      if (!open) d.open = false;
+      d.classList.remove('is-closing');
+      return;
+    }
+    d._anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    var body = d.querySelector('.faq__body');
+    if (body && open) body.animate({ opacity: [0, 1], transform: ['translateY(-6px)', 'none'] }, { duration: 320, delay: 60, easing: 'ease-out', fill: 'backwards' });
+    d._anim.onfinish = function () {
+      d._anim = null;
+      if (!open) { d.open = false; d.classList.remove('is-closing'); }
+    };
+    d._anim.oncancel = function () { d._anim = null; };
+  }
+
   faqs.forEach(function (d) {
-    d.addEventListener('toggle', function () {
-      if (!d.open) return;
-      faqs.forEach(function (o) { if (o !== d) o.open = false; });
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      var opening = !d.open || d.classList.contains('is-closing');
+      animateDetails(d, opening);
+      if (opening) faqs.forEach(function (o) { if (o !== d && o.open && !o.classList.contains('is-closing')) animateDetails(o, false); });
     });
   });
 
